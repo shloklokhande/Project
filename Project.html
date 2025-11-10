@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry Smrithi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #ffeef8 0%, #fff0f6 50%, #ffe8f0 100%);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Floating hearts animation */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 30px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 50%, #ff69b4 100%);
+            color: white;
+            animation: fadeIn 1s ease-in;
+            padding: 40px 20px;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            animation: fadeIn 2s ease-in;
+        }
+
+        .hero-emoji {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Main Apology Section */
+        .apology-section {
+            padding: 80px 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            margin-top: 60px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        .apology-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #ff1493;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .apology-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* Reasons Section */
+        .reasons-section {
+            padding: 80px 40px;
+            background: linear-gradient(135deg, #ffe8f0 0%, #fff0f6 100%);
+            text-align: center;
+        }
+
+        .reasons-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #ff1493;
+            margin-bottom: 50px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .reason-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            animation: slideInLeft 1s ease-in forwards;
+            opacity: 0;
+        }
+
+        .reason-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .reason-card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .reason-card:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        .reason-card:nth-child(5) {
+            animation-delay: 0.8s;
+        }
+
+        .reason-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 20, 147, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .reason-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .reason-card p {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Memories Section */
+        .memories-section {
+            padding: 80px 40px;
+            background: white;
+        }
+
+        .memories-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #ff1493;
+            margin-bottom: 50px;
+            text-align: center;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .memories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .memory-card {
+            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            text-align: center;
+            animation: slideInRight 1s ease-in forwards;
+            opacity: 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .memory-card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .memory-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .memory-card:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .memory-card:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        .memory-card:hover {
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+        }
+
+        .memory-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .memory-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Promises Section */
+        .promises-section {
+            padding: 80px 40px;
+            background: linear-gradient(135deg, #ffe8f0 0%, #fff0f6 100%);
+            text-align: center;
+        }
+
+        .promises-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #ff1493;
+            margin-bottom: 50px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .promises-list {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .promise-item {
+            background: white;
+            padding: 20px 30px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border-left: 5px solid #ff1493;
+            animation: slideInLeft 1s ease-in forwards;
+            opacity: 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .promise-item:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .promise-item:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .promise-item:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .promise-item:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .promise-item:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .promise-item p {
+            color: #333;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Closing Section */
+        .closing-section {
+            padding: 100px 40px;
+            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 50%, #ff69b4 100%);
+            color: white;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        .closing-section h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .closing-section p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .forgive-btn {
+            margin-top: 30px;
+            padding: 15px 40px;
+            background: white;
+            color: #ff1493;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .forgive-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .apology-section {
+                padding: 40px 20px;
+            }
+
+            .apology-section h2 {
+                font-size: 2rem;
+            }
+
+            .reasons-section,
+            .memories-section,
+            .promises-section {
+                padding: 40px 20px;
+            }
+
+            .reasons-section h2,
+            .memories-section h2,
+            .promises-section h2,
+            .closing-section h1 {
+                font-size: 2rem;
+            }
+
+            .apology-section p {
+                font-size: 1rem;
+            }
+
+            .hero-emoji {
+                font-size: 3rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts" id="hearts-container"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-emoji">💔</div>
+            <h1>I'm Sorry Smrithi</h1>
+            <p>I got mad on you, I was very disturbed</p>
+        </div>
+    </section>
+
+    <!-- Main Apology Section -->
+    <section class="apology-section">
+        <h2>What I Want You to Know</h2>
+        <p>
+            Hey Smrithi,
+        </p>
+        <p>
+            I need to tell you that I'm truly sorry for how I treated you. I was going through something 
+            that had me very disturbed, and instead of handling it properly, I took it out on you. 
+            That wasn't fair to you at all.
+        </p>
+        <p>
+            You didn't deserve my anger. I let my emotions take over, and I directed them at you when 
+            you were just trying to be there for me. You didn't do anything wrong - I was the one who 
+            messed up by letting my frustration spill over onto you.
+        </p>
+        <p>
+            I was disturbed about things happening in my life, but that's no excuse for how I spoke to you 
+            or treated you. You deserve so much better. I should have communicated how I was feeling instead 
+            of just getting mad. I'm really sorry, and I hope you can forgive me.
+        </p>
+    </section>
+
+    <!-- Reasons Section -->
+    <section class="reasons-section">
+        <h2>Why I'm Sorry</h2>
+        <div class="reasons-grid">
+                        
+            <div class="reason-card">
+                <div class="reason-icon">💬</div>
+                <p>For saying things I didn't mean</p>
+            </div>
+            <div class="reason-card">
+                <div class="reason-icon">🙈</div>
+                <p>For being stubborn and not seeing your side</p>
+            </div>
+          
+        </div>
+    </section>
+
+    <!-- Memories Section -->
+    <section class="memories-section">
+        <h2>What You Mean to Me</h2>
+        <div class="memories-grid">
+            <div class="memory-card">
+                <h3>Always There</h3>
+                <p>You've been my support system through everything</p>
+            </div>
+            <div class="memory-card">
+                <h3>Best Friend</h3>
+                <p>More than a sister, you're my closest friend</p>
+            </div>
+         
+            <div class="memory-card">
+                <h3>Protector</h3>
+                <p>You've always had my back no matter what</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promises Section -->
+  
+    <!-- Closing Section -->
+    <section class="closing-section">
+        <h1>Im Sorry Smrithi</h1>
+        <p>Thank you for being with me. ❤️</p>
+        <button class="forgive-btn">You Mean My Best Sister ❤️</button>
+    </section>
+
+    <script>
+        // Create floating hearts
+        function createFloatingHearts() {
+            const container = document.getElementById('hearts-container');
+            const hearts = ['❤️', '💕', '💗', '💖'];
+            
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.top = Math.random() * 100 + '%';
+                heart.style.animationDuration = (4 + Math.random() * 4) + 's';
+                heart.style.animationDelay = Math.random() * 2 + 's';
+                container.appendChild(heart);
+            }
+        }
+
+        // Initialize
+        createFloatingHearts();
+
+        // Button click effect
+        document.querySelector('.forgive-btn').addEventListener('click', function() {
+            alert('Thank you so much for forgiving me, Smrithi! I promise to do better. ❤️');
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reason-card, .memory-card, .promise-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
