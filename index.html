@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Power Fitness Gym</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HERO -->
+  <header>
+    <p class="hero-eyebrow">Est. Pune, Maharashtra</p>
+    <h1>Power<span>Fitness</span></h1>
+    <p class="hero-sub">Build strength, improve fitness, and stay healthy — with modern equipment, pro trainers, and a community that pushes you further.</p>
+    <a href="#membership" class="hero-cta">Join Today</a>
+    <div class="hero-divider"></div>
+  </header>
+
+  <main>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="about-grid">
+        <div>
+          <p class="section-label">Who We Are</p>
+          <h2>Built for Serious Results</h2>
+          <p>
+            Power Fitness Gym is the best place to build strength, improve fitness, and stay healthy.
+            We provide modern equipment, professional trainers, and a friendly environment that keeps you coming back.
+          </p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Machines</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">10+</div>
+            <div class="stat-label">Trainers</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Members</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">7d</div>
+            <div class="stat-label">Open Daily</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FACILITIES -->
+    <section id="facilities">
+      <p class="section-label">What We Offer</p>
+      <h2>Our Facilities</h2>
+      <div class="facilities-grid">
+        <div class="facility-item">
+          <span class="facility-icon">🏋️</span>
+          <div class="facility-name">Modern Gym Equipment</div>
+        </div>
+        <div class="facility-item">
+          <span class="facility-icon">👤</span>
+          <div class="facility-name">Personal Trainers</div>
+        </div>
+        <div class="facility-item">
+          <span class="facility-icon">🚴</span>
+          <div class="facility-name">Cardio Section</div>
+        </div>
+        <div class="facility-item">
+          <span class="facility-icon">💪</span>
+          <div class="facility-name">Weight Training</div>
+        </div>
+        <div class="facility-item">
+          <span class="facility-icon">🥗</span>
+          <div class="facility-name">Diet Guidance</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEMBERSHIP -->
+    <section id="membership">
+      <p class="section-label">Limited Offer</p>
+      <h2>Membership Plans</h2>
+      <div class="offer-box">
+        <div class="offer-text">
+          <strong>20% OFF</strong>
+          on all yearly memberships. Join now and lock in the best rate of the year.
+        </div>
+        <a href="#contact" class="hero-cta">Claim Offer</a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <p class="section-label">Get In Touch</p>
+      <h2>Contact Us</h2>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <div class="contact-item-label">Location</div>
+          <div class="contact-item-value">Near Viman Nagar, Pune</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-label">Phone</div>
+          <div class="contact-item-value">+91 98765 43210</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-label">Email</div>
+          <div class="contact-item-value">powerfitness@gmail.com</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-label">Hours</div>
+          <div class="contact-item-value">Mon – Sun &nbsp;|&nbsp; 5 AM – 11 PM</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Power<span>Fitness</span></div>
+    <div class="footer-tagline">Stay Fit &nbsp;|&nbsp; Stay Strong &nbsp;|&nbsp; Join Today</div>
+  </footer>
+
+  <script>
+    // Scroll-triggered section reveals
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('section').forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>

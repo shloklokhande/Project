@@ -1,0 +1,379 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600&display=swap');
+
+:root {
+  --black: #0a0a0a;
+  --dark: #111111;
+  --card: #1a1a1a;
+  --orange: #ff5a1f;
+  --orange-glow: #ff7a45;
+  --white: #f5f5f5;
+  --muted: #888;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--white);
+  font-family: 'Barlow', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── HERO HEADER ── */
+header {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 20px;
+  background:
+    linear-gradient(160deg, rgba(255,90,31,0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(255,90,31,0.08) 0%, transparent 60%),
+    var(--black);
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 60px,
+      rgba(255,90,31,0.04) 60px,
+      rgba(255,90,31,0.04) 61px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 60px,
+      rgba(255,90,31,0.04) 60px,
+      rgba(255,90,31,0.04) 61px
+    );
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.2s;
+}
+
+header h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(4rem, 12vw, 11rem);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--white);
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.4s;
+}
+
+header h1 span {
+  color: var(--orange);
+  display: block;
+}
+
+.hero-sub {
+  margin-top: 28px;
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 480px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.65s;
+}
+
+.hero-cta {
+  margin-top: 40px;
+  display: inline-block;
+  background: var(--orange);
+  color: #fff;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 16px 44px;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  transition: background 0.25s, transform 0.2s;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.85s;
+}
+
+.hero-cta:hover {
+  background: var(--orange-glow);
+  transform: translateY(-2px);
+}
+
+.hero-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--orange), transparent);
+}
+
+/* ── SECTIONS ── */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 28px 100px;
+}
+
+section {
+  padding: 90px 0 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  letter-spacing: 0.03em;
+  line-height: 1;
+  color: var(--white);
+  margin-bottom: 30px;
+}
+
+p {
+  color: #b0b0b0;
+  font-size: 1.05rem;
+  max-width: 640px;
+  margin-bottom: 16px;
+}
+
+/* ── ABOUT ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.stat-card {
+  background: var(--card);
+  border: 1px solid rgba(255,90,31,0.15);
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: var(--orange);
+}
+
+.stat-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem;
+  color: var(--orange);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+/* ── FACILITIES ── */
+.facilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2px;
+  margin-top: 8px;
+}
+
+.facility-item {
+  background: var(--card);
+  padding: 36px 28px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+  cursor: default;
+}
+
+.facility-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 2px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.facility-item:hover {
+  background: #1f1f1f;
+}
+
+.facility-item:hover::after {
+  transform: scaleX(1);
+}
+
+.facility-icon {
+  font-size: 2rem;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.facility-name {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+/* ── MEMBERSHIP ── */
+.offer-box {
+  background: var(--card);
+  border: 1px solid rgba(255,90,31,0.2);
+  padding: 50px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+.offer-box::before {
+  content: '20%';
+  position: absolute;
+  right: -10px; top: -20px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 10rem;
+  color: rgba(255,90,31,0.07);
+  pointer-events: none;
+  line-height: 1;
+}
+
+.offer-text strong {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  color: var(--orange);
+  display: block;
+  line-height: 1.1;
+}
+
+/* ── CONTACT ── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+}
+
+.contact-item {
+  background: var(--card);
+  padding: 36px 32px;
+}
+
+.contact-item-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.contact-item-value {
+  font-size: 1.1rem;
+  color: var(--white);
+  font-weight: 400;
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid #1e1e1e;
+  padding: 40px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  max-width: 1100px;
+  margin: 60px auto 0;
+}
+
+.footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.08em;
+  color: var(--white);
+}
+
+.footer-logo span {
+  color: var(--orange);
+}
+
+.footer-tagline {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 720px) {
+  .about-grid,
+  .contact-grid { grid-template-columns: 1fr; }
+  .about-stats  { grid-template-columns: 1fr 1fr; }
+  .offer-box    { flex-direction: column; align-items: flex-start; }
+}
